@@ -53,6 +53,29 @@ def cancelSignUp():
                print("Error")
                print(f"{name} is not in that starting slot")
 
+def viewParticipants():
+    print("====================")
+    print("View Participants")
+    print("====================")
+    
+    while True:
+        try:
+            slot_num = int(input(f"Starting slot #[1-{participant_count}]: "))
+        except ValueError:
+            print("Please enter a valid value")
+        else:
+            if slot_num <= participant_count and slot_num >= 0:
+                first_slot = slot_num - 5 if slot_num - 5 >= 1 else 1
+                last_slot = slot_num + 5 if slot_num + 5 <= participant_count else participant_count
+                for i in range(first_slot, last_slot + 1):
+                    if participant_dict[i]:
+                        print(f"{i} : {participant_dict[i]}")
+                    else:
+                        print(f"{i} : [empty]")
+                break
+            else:
+                print("Slot number out of range")
+
 # ------------------------------------------------------------
 
 print("--------------------------------------")
@@ -82,6 +105,9 @@ while system_running:
 
     elif option_num == 2:
         cancelSignUp()
+
+    elif option_num == 3:
+        viewParticipants()
 
     elif option_num == 5: # EXIT PROGRAM PROMPT
         
