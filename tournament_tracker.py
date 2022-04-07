@@ -31,6 +31,28 @@ def signUp():
             else:
                print("Error")
                print(f"Slot #{slot_num} is already filled")
+
+
+def cancelSignUp():
+    print("====================")
+    print("Participant Cancellation")
+    print("====================")
+    while True:
+        try:
+            slot_num = int(input(f"Starting slot #[1-{participant_count}]: "))
+            name = input("Participant Name: ")
+        except ValueError:
+           print("Please enter valid values") 
+        else:
+            if participant_dict[slot_num] == name:
+               participant_dict[slot_num] = None
+               print("Success:")
+               print(f"{name} has been cancelled from starting slot #{slot_num}")
+               break
+            else:
+               print("Error")
+               print(f"{name} is not in that starting slot")
+
 # ------------------------------------------------------------
 
 print("--------------------------------------")
@@ -57,6 +79,9 @@ while system_running:
 
     if option_num == 1:
         signUp()
+
+    elif option_num == 2:
+        cancelSignUp()
 
     elif option_num == 5: # EXIT PROGRAM PROMPT
         
