@@ -1,0 +1,40 @@
+Tournament Tracker Pseudocode
+
+INITIAL PROMPT:
+ParticipantsDict = empty dictionary
+NumberOfParticipants = user input
+
+function SignUp():
+	Name = parsed user input
+	StartingSlot = parsed user input
+	while Name and StartingSlot are not valid:
+		re-prompt for user input
+	store StartingSlot and Name as kv-pair in ParticipantDict	
+
+function CancelSignUp():
+	Name = parsed user input
+	StartingSlot = parsed user input
+	while Name and StartingSlot are not valid:
+		re-prompt for user input
+	delete StartingSlot and Name as kv-pair in ParticipantDict	
+
+function ViewParticipants():
+	formatted print of ParticipantDict
+
+function SaveChanges():
+	save dictionary to csv
+	
+while not exited:
+	SelectedOption = parsed user input
+	if SelectedOption = 1:
+		SignUp()
+	else if SelectedOption = 2:
+		CancelSignUp()
+	else if SelectedOption = 3:
+		ViewParticipants()
+	else if SelectedOption = 4:
+		SaveChanges()
+	else if SelectedOption = 5:
+		break out of loop
+	else:
+		throw invalid input error
